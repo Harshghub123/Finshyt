@@ -1,5 +1,23 @@
 import { create } from 'zustand';
 import supabase, { isSupabaseConfigured } from '../lib/supabase';
+import useProfile from './useProfile';
+
+// Pull Google profile data (name + photo) into useProfile store on sign-in.
+// Only fills in fields the user hasn't already customized.
+function syncGoogleProfile(user) {
+  if (!user) return;
+  const meta = user.user_metadata || {};
+  const fullName = meta.full_name || meta.name || '';
+  const photoUrl = meta.avatar_url || meta.picture || '';
+
+  const profile = useProfile.getState();
+  if (fullName && !profile.name) {
+    profile.setName(fullName);
+  }
+  if (photoUrl && !profile.customPhoto) {
+    profile.setCustomPhoto(photoUrl);
+  }
+}
 
 const useAuth = create((set, get) => ({
   user: null,
@@ -17,14 +35,18 @@ const useAuth = create((set, get) => ({
       // Listener handles all subsequent auth changes (incl. OAuth redirect).
       supabase.auth.onAuthStateChange((event, session) => {
         console.log('[auth] state change:', event, session?.user?.email || 'no user');
-        set({ user: session?.user || null, loading: false });
+        const user = session?.user || null;
+        if (user) syncGoogleProfile(user);
+        set({ user, loading: false });
       });
 
       // Also do an explicit getSession() as a fallback to guarantee
       // loading turns off even if INITIAL_SESSION doesn't fire.
       const { data: { session }, error } = await supabase.auth.getSession();
       console.log('[auth] getSession:', session?.user?.email || 'no session', error || '');
-      set({ user: session?.user || null, loading: false });
+      const user = session?.user || null;
+      if (user) syncGoogleProfile(user);
+      set({ user, loading: false });
     } catch (e) {
       console.error('[auth] init failed:', e);
       set({ loading: false });
