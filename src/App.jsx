@@ -70,14 +70,18 @@ function AppHeader({ activeTab, setActiveTab }) {
       background: 'rgba(250,250,250,0.92)', backdropFilter: 'blur(12px)',
       borderBottom: '1px solid rgba(0,0,0,0.06)', padding: '10px 16px',
     }}>
-      <div style={{ maxWidth: 900, margin: '0 auto' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+      <div style={{
+        maxWidth: 1100, margin: '0 auto',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        gap: 24, flexWrap: 'wrap',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
           <img src="/logo.png" alt="FinShyt" className="logo-img" />
           {isDemoMode() && (
             <span className="tag tag-lemon" style={{ fontSize: 11 }}>Demo</span>
           )}
         </div>
-        <div className="no-scrollbar" style={{ display: 'flex', gap: 2, overflowX: 'auto', paddingBottom: 2 }}>
+        <div className="no-scrollbar" style={{ display: 'flex', gap: 2, overflowX: 'auto', justifyContent: 'center' }}>
           {TABS.map((tab) => (
             <button
               key={tab.id}
