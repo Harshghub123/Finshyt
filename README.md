@@ -1,16 +1,38 @@
-# React + Vite
+💸 FinShyt — Your money, but smarter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A Gen-Z–first finance app that helps you track expenses, build budgets, and actually understand the real-life consequences of your choices.
 
-Currently, two official plugins are available:
+🌐 [finshyt.vercel.app](https://finshyt.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![FinShyt](public/logo.png)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ What FinShyt does
 
-## Expanding the ESLint configuration
+- 🤑 **Track expenses** with quick-add categories and emoji vibes
+- 📊 **Monthly budgets** — plan vs actual, with progress bars
+- 🔥 **Freedom Calculator** — see how long until you hit financial freedom
+- 🏆 **Challenges** — gamified savings missions (no-spend days, subscription audits, etc.)
+- 🤖 **AI Money Coach** — chat with a Gen-Z-friendly AI for personalized advice
+- 🧠 **Money Personality** — discover if you're an Impulse Spender, Silent Saver, Weekend Warrior, etc.
+- 🎯 **Custom categories** — make budgeting feel like *yours*
+- 🔐 **Google sign-in** — auto-pulls your name & photo
+- ⚡ **Demo Mode** — try it instantly with sample data, no sign-up needed
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Stack
+
+| Layer | Tool |
+|-------|------|
+| Frontend | [React 19](https://react.dev) + [Vite](https://vitejs.dev) |
+| State | [Zustand](https://github.com/pmndrs/zustand) (with persistence) |
+| Auth & DB | [Supabase](https://supabase.com) (Postgres + RLS + OAuth) |
+| AI | [OpenRouter](https://openrouter.ai) |
+| Hosting | [Vercel](https://vercel.com) |
+| Styling | Vanilla CSS with brand tokens |
+
+---
+
+🚀 Run it locally
