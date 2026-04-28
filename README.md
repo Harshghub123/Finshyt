@@ -4,8 +4,6 @@
 
 🌐 [finshyt.vercel.app](https://finshyt.vercel.app)
 
-![FinShyt](public/logo.png)
-
 ---
 
 ## ✨ What FinShyt does
@@ -33,6 +31,3 @@
 | Hosting | [Vercel](https://vercel.com) |
 | Styling | Vanilla CSS with brand tokens |
 
----
-
-🚀 Run it locally
